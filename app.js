@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 db.connect((err)=>{
-  if(err) console.log("connection error");
+  if(err) console.log("connection error"+err);
   else console.log('database connected');
 })
 app.use('/', indexRouter);
