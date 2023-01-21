@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('users/All-Products');
+  res.render('users/all-products');
 });
 
 module.exports = router;

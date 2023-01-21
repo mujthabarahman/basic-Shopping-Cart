@@ -32,10 +32,10 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
-.row{
+#All-Products .row{
   display: flex;
   justify-content: center;
 }
-.card{
+#All-Products.card{
   margin: 45px;
 }
