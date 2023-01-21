@@ -28,3 +28,14 @@ a {
   margin-top: 5px;
   margin-left: 5px;
 }
+#All-Products{
+  display: flex;
+  flex-wrap: wrap;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+.card{
+  margin: 45px;
+}
