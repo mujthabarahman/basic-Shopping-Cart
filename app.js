@@ -31,6 +31,7 @@ db.connect((err)=>{
   else console.log('database connected');
 })
 app.use(fileUpload())
+app.use(express.json())
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);
 
