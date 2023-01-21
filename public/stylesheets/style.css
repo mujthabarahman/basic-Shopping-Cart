@@ -1,8 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+#nav{
+  padding: 15px;
+}
+.nav-item{
+  margin-left: 30px;  
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.navbar-brand{
+  font-size: 20px!important;
+  margin-left: 25px!important;
+  margin-right: 2px!important;
+  font-weight: bold!important;
+}
+#laptop-icon{
+  color: white;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
