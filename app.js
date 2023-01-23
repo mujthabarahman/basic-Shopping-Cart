@@ -6,7 +6,7 @@ var logger = require('morgan');
 var db=require('./config/connection')
 var exphbs=require('express-handlebars')
 var fileUpload=require('express-fileUpload')
-
+var session = require('express-session')
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 
@@ -32,6 +32,7 @@ db.connect((err)=>{
 })
 app.use(fileUpload())
 app.use(express.json())
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);
 
