@@ -32,7 +32,7 @@ db.connect((err)=>{
 })
 app.use(fileUpload())
 app.use(express.json())
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 },resave: false, saveUninitialized: true,}))
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);
 

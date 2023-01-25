@@ -1,10 +1,4 @@
-var verifyLogin = (req,res,next)=>{
-  if(req.session.user){
-    next()
-  }else{
-    res.redirect('/')
-  }
-}
+
 var express = require('express');
 const productHelpers = require('../helpers/product-helpers');
 var userHelpers = require('../helpers/user-helpers')
@@ -22,10 +16,13 @@ router.get('/signup',(req,res)=>{
 router.post('/signup',(req, res)=>{
   userHelpers.doSignup(req.body).then((response)=>{
     console.log(response)
-    req.session.user = response;
-    req.session.user.loggedIn=true;
-    res.redirect('/')
   })
+})
+router.get('/login',(req,res)=>{
+  res.render('users/login-page')
+})
+router.post('/login',(req,res)=>{
+  userHelpers.doLogin(req.body)
 })
 
 module.exports = router;
