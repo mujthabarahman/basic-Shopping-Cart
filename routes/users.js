@@ -6,8 +6,9 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  let user=req.session.user;
   productHelpers.getAllProducts().then((products)=>{
-    res.render('users/all-products',{products});
+    res.render('users/all-products',{products,user});
   })
 });
 router.get('/signup',(req,res)=>{
@@ -22,7 +23,15 @@ router.get('/login',(req,res)=>{
   res.render('users/login-page')
 })
 router.post('/login',(req,res)=>{
-  userHelpers.doLogin(req.body)
+  userHelpers.doLogin(req.body).then((response)=>{
+    if(response.status){
+      req.session.user=response.user;
+      req.session.loggedIn=true;
+      res.redirect('/')
+    }else{
+      res.redirect('/login')
+    }
+  })
 })
 
 module.exports = router;
