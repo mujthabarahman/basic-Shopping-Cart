@@ -20,7 +20,12 @@ router.post('/signup',(req, res)=>{
   })
 })
 router.get('/login',(req,res)=>{
-  res.render('users/login-page')
+  if(req.session.loggedIn){
+    res.redirect('/')
+  }else{
+    res.render('users/login-page',{'loginErr':req.session.loginErr})
+    req.session.loginErr=null;
+  }
 })
 router.post('/login',(req,res)=>{
   userHelpers.doLogin(req.body).then((response)=>{
@@ -29,6 +34,7 @@ router.post('/login',(req,res)=>{
       req.session.loggedIn=true;
       res.redirect('/')
     }else{
+      req.session.loginErr='invalid email or password'
       res.redirect('/login')
     }
   })
