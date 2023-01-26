@@ -50,7 +50,7 @@ router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/login')
 })
-router.get(verifyLogin,'/cart',(req,res)=>{
+router.get('/cart',verifyLogin,(req,res)=>{
   res.render('users/cart')
 })
 
