@@ -16,11 +16,13 @@
           <a class="nav-link" href="#">brands</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
+          <a class="nav-link" href="/cart">Cart</a>
         </li>
+        {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="#">Orders</a>
         </li>
+        {{/if}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light bg-success rounded" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{#if user}}
