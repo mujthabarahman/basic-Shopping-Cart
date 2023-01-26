@@ -4,6 +4,7 @@ const productHelpers = require('../helpers/product-helpers');
 var userHelpers = require('../helpers/user-helpers')
 var router = express.Router();
 
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   let user=req.session.user;
@@ -42,6 +43,9 @@ router.post('/login',(req,res)=>{
 router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/login')
+})
+router.get('/cart',(req,res)=>{
+  res.render('users/cart')
 })
 
 module.exports = router;
