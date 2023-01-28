@@ -27,5 +27,12 @@ router.post('/add-product',(req,res)=>{
     res.render('admin/add-product', {admin: true})
   })
 })
+router.get('/delete/:id',(req,res)=>{
+  let prodId=req.params['id'];
+  console.log(prodId);
+  productHelpers.deleteProduct(prodId).then((response)=>{
+    res.redirect('/admin/',{admin: true})
+  })
+})
 
 module.exports = router;
